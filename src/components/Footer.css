@@ -3,11 +3,12 @@
 .footer {
     background-color:#e2942f;
     color: #ffea00;
-    padding: 20px;
     text-align: center;
     position: fixed;
     bottom: 0;
     width: 100%;
+    padding: 0px;
+    
     
   }
   
