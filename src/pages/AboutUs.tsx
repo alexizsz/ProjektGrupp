@@ -11,7 +11,6 @@ const AboutUs=()=>{
         <div className="about-us-container">
             <h2 className="about-us-heading">About Us</h2>
             <div className="about-us-content"></div>
-        <h2>About Us</h2>
             <p>Welcome to our food and cocktails website!</p>
             <p>At [Food and Cocktails], we're passionate about serving delicious food and refreshing cocktails to our customers.</p>
             <p>Our mission is to provide you with exceptional dining experiences, whether you're dining in with us or enjoying our offerings from the comfort of your home.</p>
