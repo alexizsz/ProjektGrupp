@@ -8,7 +8,10 @@ const AddRecipe = () => {
   const [price, setPrice] = useState(0);
   const [category, setCategory] = useState("");
   const [newInstruction, setNewInstruction] = useState("");
+  //Instructions&Ingredients vill jag kunna lägga till flera rader, därav arrays. 
+  //Instructions behöver bara vara arrays av string.
   const [instructions, setInstructions] = useState<string[]>([""]);
+  //Ingredients behöver ha flera specifika saker i sin array därför är den specifierad
   const [ingredients, setIngredients] = useState<
     { name: string; amount: number; unit: string }[]
   >([]);
@@ -21,9 +24,8 @@ const AddRecipe = () => {
       { name: "", amount: 0, unit: "" },
     ]);
   };
-  
-  
-  //Likadan funktion för instruktion eftersom det kan behöva vara flera rader. 
+
+  //Likadan funktion för instruktion eftersom det kan behöva vara flera rader.
   //Trimmar bort tom text ifall det finns bakom instruktionerna
   const handleAddInstruction = () => {
     if (newInstruction.trim() !== "") {
@@ -148,48 +150,48 @@ const AddRecipe = () => {
       <div>
         <label>Ingredients:</label>
         {ingredients.map((ingredient, index) => (
-  <div key={index}>
-    <input
-      type="text"
-      value={ingredient.name}
-      placeholder="Name"
-      onChange={(e) => {
-        const value = e.target.value;
-        setIngredients((prevIngredients) => {
-          const updatedIngredients = [...prevIngredients];
-          updatedIngredients[index].name = value;
-          return updatedIngredients;
-        });
-      }}
-    />
-    <input
-      type="number"
-      value={ingredient.amount}
-      placeholder="Amount"
-      onChange={(e) => {
-        const value = parseInt(e.target.value);
-        setIngredients((prevIngredients) => {
-          const updatedIngredients = [...prevIngredients];
-          updatedIngredients[index].amount = value;
-          return updatedIngredients;
-        });
-      }}
-    />
-    <input
-      type="text"
-      value={ingredient.unit}
-      placeholder="Unit"
-      onChange={(e) => {
-        const value = e.target.value;
-        setIngredients((prevIngredients) => {
-          const updatedIngredients = [...prevIngredients];
-          updatedIngredients[index].unit = value;
-          return updatedIngredients;
-        });
-      }}
-    />
-  </div>
-))}
+          <div key={index}>
+            <input
+              type="text"
+              value={ingredient.name}
+              placeholder="Name"
+              onChange={(e) => {
+                const value = e.target.value;
+                setIngredients((prevIngredients) => {
+                  const updatedIngredients = [...prevIngredients];
+                  updatedIngredients[index].name = value;
+                  return updatedIngredients;
+                });
+              }}
+            />
+            <input
+              type="number"
+              value={ingredient.amount}
+              placeholder="Amount"
+              onChange={(e) => {
+                const value = parseInt(e.target.value);
+                setIngredients((prevIngredients) => {
+                  const updatedIngredients = [...prevIngredients];
+                  updatedIngredients[index].amount = value;
+                  return updatedIngredients;
+                });
+              }}
+            />
+            <input
+              type="text"
+              value={ingredient.unit}
+              placeholder="Unit"
+              onChange={(e) => {
+                const value = e.target.value;
+                setIngredients((prevIngredients) => {
+                  const updatedIngredients = [...prevIngredients];
+                  updatedIngredients[index].unit = value;
+                  return updatedIngredients;
+                });
+              }}
+            />
+          </div>
+        ))}
         <button onClick={handleAddIngredient}>Add Ingredient</button>
       </div>
       <button onClick={handleAddRecipe}>Add Recipe</button>
