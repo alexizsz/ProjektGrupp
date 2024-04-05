@@ -1,24 +1,24 @@
-// ContactPage.tsx
-
-import React from 'react';
-import ContactForm from '../components/ContactForm';
+import '../App.css'
 import '../components/Contact.css'
 
-const ContactPage: React.FC = () => {
-  const handleSubmit = (formData: { name: string; email: string; message: string }) => {
-    // Handle form submission logic here, e.g., send data to backend
-    console.log('Form submitted:', formData);
-  };
 
-  return (
-    <div>
-      <h1 style={{ textAlign: 'center', fontWeight: 'bold' }}>Contact us</h1>
-      <h3 style={{ textAlign: 'center', fontWeight: 'bold' }}>Your inquiry is valuable to us, and we strive to respond promptly within 24 hours</h3>
-      <h3 style={{ textAlign: 'center', fontWeight: 'bold' }}>Alternatively, feel free to reach us directly at: +46 / 70 123 45 67</h3>
-      <ContactForm onSubmit={handleSubmit} />
-      <h3 style={{ textAlign: 'center', fontWeight: 'bold' }}>Opening Hours: Monday - Friday: 9am - 5pm</h3>
-    </div>
-  );
-};
+const ContactPage=()=>{
+    return(
+
+        <div className="contact-container">
+            <h2 className="contact-heading">Contact Us</h2>
+            <div className="contact-info">
+                <p><strong>Opening Hours:</strong> Monday - Friday: 9am - 5pm</p>
+                <p><strong>Email:</strong> info@grupp-arbete-6.se</p>
+                <p><strong>Phone:</strong> +46 70 123 45 67</p>
+            </div>
+            <img src="https://st2.depositphotos.com/1518767/10326/i/450/depositphotos_103266334-stock-photo-restaurant-team-standing-together.jpg" alt="Ourteam" />
+   
+          
+            <p className="copyright">© Food and Cocktails 2024</p>
+        </div>
+    );
+}
 
 export default ContactPage;
+
