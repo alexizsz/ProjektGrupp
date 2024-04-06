@@ -1,6 +1,5 @@
-import "../App.css";
 import { useState, useEffect } from "react";
-import "../CSSfolder/Foodpage.css";
+import "../CSS/FoodPage.css";
 
 const FoodPage = () => {
   const [recipes, setRecipes] = useState([]);
@@ -8,7 +7,7 @@ const FoodPage = () => {
   useEffect(() => {
     fetchRecipes();
   }, []);
-  //fetchar alla recept, och sätter data till setRecipes
+
   const fetchRecipes = async () => {
     try {
       const response = await fetch(
@@ -24,7 +23,6 @@ const FoodPage = () => {
     }
   };
 
-  
   return (
     <div>
       <h1>Recipes</h1>
@@ -45,6 +43,10 @@ const FoodPage = () => {
                   {recipe.instructions.map((instruction) => (
                     <div key={instruction}>{instruction}</div>
                   ))}
+                </div>
+                <div className="recipe-buttons">
+                  <button>Add to Cart</button>
+                  <button>Remove from Cart</button>
                 </div>
               </div>
             </div>
