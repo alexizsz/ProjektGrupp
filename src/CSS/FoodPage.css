@@ -54,3 +54,62 @@
   background-color: #007bff;
   color: #fff;
 }
+
+/* Cart CSS */
+
+.cart-container {
+  background-color: aquamarine;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.cart-item {
+  background-color: yellow;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.cart-item-details {
+  
+  display: flex;
+  align-items: center;
+}
+
+.cart-item-details img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.cart-item-quantity {
+  font-weight: bold;
+}
+
+.total-price {
+  margin-left: 43%;
+  font-size: 25px;
+  color: red;
+  margin-top: 10px;
+  font-weight: bold;
+  justify-content: center;
+}
+
+
+.payment-button {
+  background-color: red;
+  padding: 20px 40px; /* Adjust padding to increase button size */
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 25px; /* Adjust font size if needed */
+  cursor: pointer;
+  width: 50%;
+  margin-left: 25%;
+  
+}
