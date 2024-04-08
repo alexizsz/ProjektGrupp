@@ -1,5 +1,5 @@
 import '../App.css'
-import '../components/Contact.css'
+import '../CSS/Contact.css'
 
 
 const ContactPage=()=>{

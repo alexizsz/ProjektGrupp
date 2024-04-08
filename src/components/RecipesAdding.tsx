@@ -1,4 +1,5 @@
 import { useState } from "react";
+import '../CSS/AddRecipe.css'
 
 const AddRecipe = () => {
   const [title, setTitle] = useState("");
@@ -82,7 +83,7 @@ const AddRecipe = () => {
   };
 
   return (
-    <div>
+    <div className="add-recipe-container">
       <h2>Add Recipe</h2>
       <div>
         <label>Title:</label>
@@ -143,7 +144,7 @@ const AddRecipe = () => {
           onChange={(e) => setNewInstruction(e.target.value)}
           placeholder="Enter new instruction"
         />
-        <button onClick={handleAddInstruction}>Add Instruction</button>
+        <button className="add-instruction-button" onClick={handleAddInstruction}>Add Instruction</button>
       </div>
       <div>
         <label>Ingredients:</label>
@@ -190,9 +191,9 @@ const AddRecipe = () => {
     />
   </div>
 ))}
-        <button onClick={handleAddIngredient}>Add Ingredient</button>
+        <button className="add-ingredient-button" onClick={handleAddIngredient}>Add Ingredient</button>
       </div>
-      <button onClick={handleAddRecipe}>Add Recipe</button>
+      <button className="add-recipe-button" onClick={handleAddRecipe}>Add Recipe</button>
     </div>
   );
 };
