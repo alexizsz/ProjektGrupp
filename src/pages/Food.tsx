@@ -1,6 +1,7 @@
 import "../App.css";
 import { useState, useEffect } from "react";
 import "../CSSfolder/Foodpage.css";
+import { Link } from "react-router-dom";
 
 const FoodPage = () => {
   const [recipes, setRecipes] = useState([]);
@@ -24,31 +25,33 @@ const FoodPage = () => {
     }
   };
 
-  
+
   return (
     <div>
       <h1>Recipes</h1>
       <div className="recipe-container">
         {recipes.map((recipe) => (
-          <div key={recipe._id} className="recipe-card">
-            <h2>{recipe.title}</h2>
-            <div className="recipe-info">
-              <div className="recipe-image">
-                <img src={recipe.imageUrl} alt="img" />
-              </div>
-              <div className="recipe-details">
-                <p>Description: {recipe.description}</p>
-                <p>Time: {recipe.timeInMins} mins</p>
-                <p>Price: {recipe.price} SEK</p>
-                <div>
-                  <h4>Instructions:</h4>
-                  {recipe.instructions.map((instruction) => (
-                    <div key={instruction}>{instruction}</div>
-                  ))}
+          <button>
+            <div key={recipe._id} className="recipe-card">
+              <h2>{recipe.title}</h2>
+              <div className="recipe-info">
+                <div className="recipe-image">
+                  <img src={recipe.imageUrl} alt="img" />
+                </div>
+                <div className="recipe-details">
+                  <p>Description: {recipe.description}</p>
+                  <p>Time: {recipe.timeInMins} mins</p>
+                  <p>Price: {recipe.price} SEK</p>
+                  <div>
+                    <h4>Instructions:</h4>
+                    {recipe.instructions.map((instruction) => (
+                      <div key={instruction}>{instruction}</div>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
+            </div>{" "}
+          </button>
         ))}
       </div>
     </div>

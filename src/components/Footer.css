@@ -1,3 +1,5 @@
+/* Footer.css */
+
 .footer {
     background-color:#e2942f;
     color: #ffea00;
@@ -6,12 +8,8 @@
     position: fixed;
     bottom: 0;
     width: 100%;
-    z-index: 999;
   }
   
-  .content{
-    padding-bottom: 0%;
-  }
   .footer p {
     margin: 5px 0;
   }

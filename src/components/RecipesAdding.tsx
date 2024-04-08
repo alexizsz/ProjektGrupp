@@ -64,7 +64,6 @@ const AddRecipe = () => {
         const responseData = await response.json();
         const newRecipeId = responseData._id;
         console.log("Recipe added successfully. New recipe ID:", newRecipeId);
-        console.log("Recipe added successfully");
         // Återställer alla värden
         setTitle("");
         setDescription("");

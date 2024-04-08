@@ -1,6 +1,6 @@
 .recipe-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(calc(33.33% - 20px), 1fr));
   grid-gap: 20px;
 }
 
@@ -11,12 +11,11 @@
 }
 
 .recipe-card img {
-  max-width: 500px;
-  height: 400px;
+  max-width: 150px;
+  height: auto;
   flex: 1;
 }
 
 .recipe-info {
   display: flex;
 }
-
