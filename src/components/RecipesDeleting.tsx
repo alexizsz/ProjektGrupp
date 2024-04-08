@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import '../CSS/DeleteRecipe.css'
 
 interface Recipe {
   _id: string;
@@ -62,7 +63,7 @@ const DeleteRecipe: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className="delete-recipe-container">
       <h2>Delete Recipes</h2>
       {recipes.map((recipe) => (
         <div key={recipe._id}>
@@ -75,6 +76,7 @@ const DeleteRecipe: React.FC = () => {
         </div>
       ))}
       <button onClick={handleDeleteRecipes}>Delete Selected Recipes</button>
+      
     </div>
   );
 };

@@ -1,4 +1,5 @@
 nav {
+  
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -24,6 +25,11 @@ nav {
 .nav-links li a {
   color: #fff;
   text-decoration: none;
+  transition: color 0.3s ease; /* Adding transition for smooth effect */
+}
+
+.nav-links li a:hover {
+  color: #ffea00; /* Change color on hover */
 }
 
 .cart-icon {
