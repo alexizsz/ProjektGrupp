@@ -2,7 +2,7 @@
 
 .footer {
     background-color:#e2942f;
-    color: white;
+    color: rgb(26, 22, 22);  /*color: white;   (Gammal färgkod)*/
     padding: 20px;
     text-align: center;
     position: relative;
