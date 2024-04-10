@@ -9,6 +9,7 @@ interface Recipe {
   timeInMins: number;
   price: number;
   instructions: string[];
+  
 }
 
 interface CartItem {
