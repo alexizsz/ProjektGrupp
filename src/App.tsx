@@ -9,6 +9,7 @@ import ContactPage from './pages/Contact';
 import AdminPage from './pages/Admin';
 import AddRecipe from './components/RecipesAdding';
 import DeleteRecipe from './components/RecipesDeleting';
+import ModifyRecipe from './components/ModifyRecipe'
 function App() {
   return (
     <Router>
@@ -22,6 +23,7 @@ function App() {
           <Route path="/AddRecipe" element={<AddRecipe />} />
           <Route path="/AdminPage" element={<AdminPage/>}/>
           <Route path="/DeleteRecipe" element={<DeleteRecipe/>}/>
+          <Route path="/ModifyRecipe" element={<ModifyRecipe/>}/>
         </Routes>
         <Footer />
       </div>

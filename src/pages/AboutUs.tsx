@@ -1,5 +1,5 @@
 import '../App.css'
-import '../components/AboutUs.css'
+import '../CSS/AboutUs.css'
 
 
 const AboutUs=()=>{
