@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import "../CSS/FoodPage.css";
 import { Link } from "react-router-dom";
+import SidesPage from "../components/Sides";
 
 interface Recipe {
   _id: string;
@@ -154,7 +155,8 @@ const FoodPage = () => {
       {showSides && (
         <div ref={sidesRef} className="sides-container">
           <h2>Sides</h2>
-          {/* Render your sides here */}
+
+          {<SidesPage/>}
         </div>
       )}
       <div className="cart-container">
