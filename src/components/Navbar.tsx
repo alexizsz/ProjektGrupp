@@ -11,11 +11,11 @@ const Navbar: React.FC<NavbarProps> = ({ cartItemsCount }) => {
     <nav>
       <div className="logo">Food and Cocktails</div>
       <ul className="nav-links">
-      <li><Link to="/">Home</Link></li>
-      <li><Link to="/Food">Food</Link></li>
-      <li><Link to="/AboutUs">AboutUs</Link></li>
-      <li><Link to="/ContactPage">Contact</Link></li>
-      <li><Link to="/AdminPage">Admin</Link></li>
+      <li><Link to="/">HOME</Link></li>
+      <li><Link to="/Food">FOOD</Link></li>
+      <li><Link to="/AboutUs">ABOUT US</Link></li>
+      <li><Link to="/ContactPage">CONTACT</Link></li>
+      <li><Link to="/AdminPage">ADMIN</Link></li>
       </ul>
       <div className="cart-icon">
         <FaShoppingCart />

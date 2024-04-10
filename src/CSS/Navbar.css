@@ -4,7 +4,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   background-color: #e2942f;
-  color: #ffea00;
+  color: rgb(26, 22, 22); /*color: #ffea00;  (Gammal färgkod)*/
   padding: 10px 20px;
 }
 

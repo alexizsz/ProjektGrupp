@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import "../CSS/FoodPage.css";
 import { Link } from "react-router-dom";
 
@@ -21,6 +21,9 @@ interface CartItem {
 const FoodPage = () => {
   const [recipes, setRecipes] = useState<Recipe[]>([]);
   const [cart, setCart] = useState<CartItem[]>([]); // Array of items in the cart
+  const [showSides, setShowSides] = useState(false); // State to manage the visibility of sides section
+  const sidesRef = useRef<HTMLDivElement>(null);
+
 
   useEffect(() => {
     fetchRecipes();
@@ -95,6 +98,18 @@ const FoodPage = () => {
       <Link to={`/FoodDetails/${recipeId}`}>Details</Link>
     );
   };
+  //funktion för att visa/ej visa sides
+  const toggleSides = () => {
+    setShowSides((prev) => !prev);
+  };
+  //Funktion för att scrolla ner när sides visas
+  useEffect(() => {
+    if (showSides) {
+      setTimeout(() => {
+        sidesRef.current?.scrollIntoView({ behavior: "smooth" });
+      }, 300); 
+    }
+  }, [showSides]);
 
   return (
     <div>
@@ -127,12 +142,21 @@ const FoodPage = () => {
                   <button>
                    {handleOnClick(recipe._id)}
                   </button>
+                  <button onClick={toggleSides}>
+                    {showSides ? "Hide Sides" : "Show Sides"}
+                  </button>
                 </div>
               </div>
             </div>
           </div>
         ))}
       </div>
+      {showSides && (
+        <div ref={sidesRef} className="sides-container">
+          <h2>Sides</h2>
+          {/* Render your sides here */}
+        </div>
+      )}
       <div className="cart-container">
         <h2>Cart</h2>
         {cart.map((item) => (
