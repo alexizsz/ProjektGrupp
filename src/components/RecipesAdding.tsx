@@ -1,4 +1,5 @@
 import { useState } from "react";
+import '../CSS/AddRecipe.css'
 
 const AddRecipe = () => {
   const [title, setTitle] = useState("");
@@ -83,7 +84,7 @@ const AddRecipe = () => {
   };
 
   return (
-    <div>
+    <div className="add-recipe-container">
       <h2>Add Recipe</h2>
       <div>
         <label>Title:</label>
@@ -144,56 +145,56 @@ const AddRecipe = () => {
           onChange={(e) => setNewInstruction(e.target.value)}
           placeholder="Enter new instruction"
         />
-        <button onClick={handleAddInstruction}>Add Instruction</button>
+        <button className="add-instruction-button" onClick={handleAddInstruction}>Add Instruction</button>
       </div>
       <div>
         <label>Ingredients:</label>
         {ingredients.map((ingredient, index) => (
-          <div key={index}>
-            <input
-              type="text"
-              value={ingredient.name}
-              placeholder="Name"
-              onChange={(e) => {
-                const value = e.target.value;
-                setIngredients((prevIngredients) => {
-                  const updatedIngredients = [...prevIngredients];
-                  updatedIngredients[index].name = value;
-                  return updatedIngredients;
-                });
-              }}
-            />
-            <input
-              type="number"
-              value={ingredient.amount}
-              placeholder="Amount"
-              onChange={(e) => {
-                const value = parseInt(e.target.value);
-                setIngredients((prevIngredients) => {
-                  const updatedIngredients = [...prevIngredients];
-                  updatedIngredients[index].amount = value;
-                  return updatedIngredients;
-                });
-              }}
-            />
-            <input
-              type="text"
-              value={ingredient.unit}
-              placeholder="Unit"
-              onChange={(e) => {
-                const value = e.target.value;
-                setIngredients((prevIngredients) => {
-                  const updatedIngredients = [...prevIngredients];
-                  updatedIngredients[index].unit = value;
-                  return updatedIngredients;
-                });
-              }}
-            />
-          </div>
-        ))}
-        <button onClick={handleAddIngredient}>Add Ingredient</button>
+  <div key={index}>
+    <input
+      type="text"
+      value={ingredient.name}
+      placeholder="Name"
+      onChange={(e) => {
+        const value = e.target.value;
+        setIngredients((prevIngredients) => {
+          const updatedIngredients = [...prevIngredients];
+          updatedIngredients[index].name = value;
+          return updatedIngredients;
+        });
+      }}
+    />
+    <input
+      type="number"
+      value={ingredient.amount}
+      placeholder="Amount"
+      onChange={(e) => {
+        const value = parseInt(e.target.value);
+        setIngredients((prevIngredients) => {
+          const updatedIngredients = [...prevIngredients];
+          updatedIngredients[index].amount = value;
+          return updatedIngredients;
+        });
+      }}
+    />
+    <input
+      type="text"
+      value={ingredient.unit}
+      placeholder="Unit"
+      onChange={(e) => {
+        const value = e.target.value;
+        setIngredients((prevIngredients) => {
+          const updatedIngredients = [...prevIngredients];
+          updatedIngredients[index].unit = value;
+          return updatedIngredients;
+        });
+      }}
+    />
+  </div>
+))}
+        <button className="add-ingredient-button" onClick={handleAddIngredient}>Add Ingredient</button>
       </div>
-      <button onClick={handleAddRecipe}>Add Recipe</button>
+      <button className="add-recipe-button" onClick={handleAddRecipe}>Add Recipe</button>
     </div>
   );
 };

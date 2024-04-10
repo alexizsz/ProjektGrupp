@@ -1,8 +1,8 @@
-import '../App.css'
+import '../CSS/Home.css'
 
 const Homepage=()=>{
     return(
-        <div>
+        <div className='home-style'>
         <p>This will be the homepage with pictures of food etc</p>
         </div>
     );

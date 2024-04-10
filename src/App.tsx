@@ -9,7 +9,8 @@ import ContactPage from './pages/Contact';
 import AdminPage from './pages/Admin';
 import AddRecipe from './components/RecipesAdding';
 import DeleteRecipe from './components/RecipesDeleting';
-import DetailedFoodCard from './components/DetailedFoodCard';
+import ModifyRecipe from './components/ModifyRecipe'
+import FoodDetailsPage from './components/FoodDetails';
 
 
 function App() {
@@ -25,7 +26,8 @@ function App() {
           <Route path="/AddRecipe" element={<AddRecipe />} />
           <Route path="/AdminPage" element={<AdminPage/>}/>
           <Route path="/DeleteRecipe" element={<DeleteRecipe/>}/>
-          <Route path="/FoodCard" element={<DetailedFoodCard/>}/>
+          <Route path="/ModifyRecipe" element={<ModifyRecipe/>}/>
+          <Route path="/FoodDetails/:recipeId" element={<FoodDetailsPage/>}/>
         </Routes>
         <Footer />
       </div>
