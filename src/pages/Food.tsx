@@ -22,8 +22,8 @@ interface CartItem {
 
 const FoodPage = () => {
   const [recipes, setRecipes] = useState<Recipe[]>([]);
-  const [cart, setCart] = useState<CartItem[]>([]); // Array of items in the cart
-  const [showSides, setShowSides] = useState(false); // State to manage the visibility of sides section
+  const [cart, setCart] = useState<CartItem[]>([]);
+  const [showSides, setShowSides] = useState(false);
   const sidesRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -39,7 +39,9 @@ const FoodPage = () => {
         throw new Error("Failed to fetch recipes");
       }
       const data: Recipe[] = await response.json();
-      const mainRecipes = data.filter(recipe => recipe.categories.includes("main"));
+      const mainRecipes = data.filter((recipe) =>
+        recipe.categories.includes("main")
+      );
       setRecipes(mainRecipes);
     } catch (error) {
       console.error("Error fetching recipes:", error);
@@ -78,14 +80,11 @@ const FoodPage = () => {
   };
 
   const handlePayment = () => {
-    // Add your payment logic here
     alert("Payment Successful!");
   };
 
   const handleOnClick = (recipeId: string) => {
-    return (
-      <Link to={`/FoodDetails/${recipeId}`}>Details</Link>
-    );
+    return <Link to={`/FoodDetails/${recipeId}`}>Details</Link>;
   };
 
   const toggleSides = () => {
@@ -100,7 +99,7 @@ const FoodPage = () => {
     if (showSides) {
       setTimeout(() => {
         sidesRef.current?.scrollIntoView({ behavior: "smooth" });
-      }, 300); 
+      }, 300);
     }
   }, [showSides]);
 
@@ -132,9 +131,7 @@ const FoodPage = () => {
                   <button onClick={() => removeFromCart(recipe._id)}>
                     Remove from Cart
                   </button>
-                  <button>
-                    {handleOnClick(recipe._id)}
-                  </button>
+                  <button>{handleOnClick(recipe._id)}</button>
                   <button onClick={toggleSides}>
                     {showSides ? "Hide Sides" : "Show Sides"}
                   </button>

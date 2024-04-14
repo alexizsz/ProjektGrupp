@@ -50,7 +50,7 @@ const SidesPage = ({ addToCart }: Props) => {
               ))}
             </div>
             <button
-              className="add-to-cart-button"
+              className="recipe-button"
               onClick={() => addToCart(side)}
             >
               Add to Cart

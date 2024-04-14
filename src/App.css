@@ -16,3 +16,9 @@ h5 {
 h6 {
   font-family: "Abril Fatface", sans-serif;
 }
+
+@media screen and (max-width: 768px) {
+  .container {
+    width: 100%; 
+  }
+}

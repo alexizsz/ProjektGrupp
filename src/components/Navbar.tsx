@@ -9,7 +9,7 @@ interface NavbarProps {
 const Navbar: React.FC<NavbarProps> = ({ cartItemsCount }) => {
   return (
     <nav>
-      <div className="logo">Food and Cocktails</div>
+      <Link to="/" className="logo">Food and Cocktails</Link>
       <ul className="nav-links">
       <li><Link to="/">HOME</Link></li>
       <li><Link to="/Food">FOOD</Link></li>
