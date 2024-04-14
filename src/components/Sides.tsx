@@ -1,43 +1,49 @@
+// SidesPage.tsx
 import { useEffect, useState } from "react";
 import { Recipe } from "./Types";
 
-const SidesPage = () => {
-    const [sides, setSides] = useState<Recipe[]>([]);
+interface Props {
+  addToCart: (recipe: Recipe) => void;
+}
 
-    useEffect(() => {
-        const fetchSides = async () => {
-            try {
-                const response = await fetch(
-                    "https://sti-java-grupp8-ctcktc.reky.se/categories/side/recipes"
-                );
-                if (!response.ok) {
-                    throw new Error("Failed to fetch recipes");
-                }
-                const data: Recipe[] = await response.json();
-                setSides(data);
-            } catch (error) {
-                console.error("Error fetching recipes:", error);
-            }
-        };
+const SidesPage = ({ addToCart }: Props) => {
+  const [sides, setSides] = useState<Recipe[]>([]);
 
-        fetchSides();
-    }, []);
+  useEffect(() => {
+    const fetchSides = async () => {
+      try {
+        const response = await fetch(
+          "https://sti-java-grupp8-ctcktc.reky.se/categories/side/recipes"
+        );
+        if (!response.ok) {
+          throw new Error("Failed to fetch recipes");
+        }
+        const data: Recipe[] = await response.json();
+        setSides(data);
+      } catch (error) {
+        console.error("Error fetching recipes:", error);
+      }
+    };
 
-    return (
-        <div>
-            <h1>Sides</h1>
-            {sides.map((side)=>(
-                <div key={side.title}>
-                    <h2>{side.title}</h2>
-                    <img src={side.imageUrl} alt="sidesImage" />
-                    <p>description:{side.description}</p>
-                    {side.instructions.map((instruction, index) => (
-                    <div key={index}>{instruction}</div>
-                  ))}
-                </div>
-            ))}
+    fetchSides();
+  }, []);
+
+  return (
+    <div>
+      <h1>Sides</h1>
+      {sides.map((side) => (
+        <div key={side.title}>
+          <h2>{side.title}</h2>
+          <img src={side.imageUrl} alt="sidesImage" />
+          <p>description:{side.description}</p>
+          {side.instructions.map((instruction, index) => (
+            <div key={index}>{instruction}</div>
+          ))}
+          <button onClick={() => addToCart(side)}>Add to Cart</button>
         </div>
-    );
+      ))}
+    </div>
+  );
 };
 
 export default SidesPage;
