@@ -1,3 +1,4 @@
+// FoodPage.tsx
 import { useState, useEffect, useRef } from "react";
 import "../CSS/FoodPage.css";
 import { Link } from "react-router-dom";
@@ -25,22 +26,9 @@ const FoodPage = () => {
   const [showSides, setShowSides] = useState(false); // State to manage the visibility of sides section
   const sidesRef = useRef<HTMLDivElement>(null);
 
-
   useEffect(() => {
     fetchRecipes();
   }, []);
-
-  useEffect(() => {
-    // Calculate total price whenever cart changes
-    const calculateTotalPrice = () => {
-      const total = cart.reduce(
-        (acc, item) => acc + item.recipe.price * item.quantity,
-        0
-      );
-      return total;
-    };
-    calculateTotalPrice();
-  }, [cart]);
 
   const fetchRecipes = async () => {
     try {
@@ -99,11 +87,15 @@ const FoodPage = () => {
       <Link to={`/FoodDetails/${recipeId}`}>Details</Link>
     );
   };
-  //funktion för att visa/ej visa sides
+
   const toggleSides = () => {
     setShowSides((prev) => !prev);
   };
-  //Funktion för att scrolla ner när sides visas
+
+  const addToCartFromSides = (recipe: Recipe) => {
+    setCart([...cart, { recipe, quantity: 1 }]);
+  };
+
   useEffect(() => {
     if (showSides) {
       setTimeout(() => {
@@ -141,7 +133,7 @@ const FoodPage = () => {
                     Remove from Cart
                   </button>
                   <button>
-                   {handleOnClick(recipe._id)}
+                    {handleOnClick(recipe._id)}
                   </button>
                   <button onClick={toggleSides}>
                     {showSides ? "Hide Sides" : "Show Sides"}
@@ -155,8 +147,7 @@ const FoodPage = () => {
       {showSides && (
         <div ref={sidesRef} className="sides-container">
           <h2>Sides</h2>
-
-          {<SidesPage/>}
+          <SidesPage addToCart={addToCartFromSides} />
         </div>
       )}
       <div className="cart-container">
