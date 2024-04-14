@@ -17,7 +17,7 @@ function App() {
   return (
     <Router>
       <div className='App'>
-        <Navbar cartItemsCount={0}/>
+        <Navbar cartItemsCount={1}/>
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/Food" element={<FoodPage />} />
