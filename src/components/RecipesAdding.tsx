@@ -9,7 +9,10 @@ const AddRecipe = () => {
   const [price, setPrice] = useState(0);
   const [category, setCategory] = useState("");
   const [newInstruction, setNewInstruction] = useState("");
+  //Instructions&Ingredients vill jag kunna lägga till flera rader, därav arrays. 
+  //Instructions behöver bara vara arrays av string.
   const [instructions, setInstructions] = useState<string[]>([""]);
+  //Ingredients behöver ha flera specifika saker i sin array därför är den specifierad
   const [ingredients, setIngredients] = useState<
     { name: string; amount: number; unit: string }[]
   >([]);
@@ -22,9 +25,8 @@ const AddRecipe = () => {
       { name: "", amount: 0, unit: "" },
     ]);
   };
-  
-  
-  //Likadan funktion för instruktion eftersom det kan behöva vara flera rader. 
+
+  //Likadan funktion för instruktion eftersom det kan behöva vara flera rader.
   //Trimmar bort tom text ifall det finns bakom instruktionerna
   const handleAddInstruction = () => {
     if (newInstruction.trim() !== "") {
@@ -63,7 +65,6 @@ const AddRecipe = () => {
         const responseData = await response.json();
         const newRecipeId = responseData._id;
         console.log("Recipe added successfully. New recipe ID:", newRecipeId);
-        console.log("Recipe added successfully");
         // Återställer alla värden
         setTitle("");
         setDescription("");
