@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import '../CSS/DeleteRecipe.css'
+import "../CSS/DeleteRecipe.css";
 
 interface Recipe {
   _id: string;
@@ -17,7 +17,9 @@ const DeleteRecipe: React.FC = () => {
 
   const fetchRecipes = async () => {
     try {
-      const response = await fetch("https://sti-java-grupp8-ctcktcs.reky.se/recipes");
+      const response = await fetch(
+        "https://sti-java-grupp8-ctcktcs.reky.se/recipes"
+      );
       if (response.ok) {
         const data = await response.json();
         setRecipes(data);
@@ -76,7 +78,6 @@ const DeleteRecipe: React.FC = () => {
         </div>
       ))}
       <button onClick={handleDeleteRecipes}>Delete Selected Recipes</button>
-      
     </div>
   );
 };

@@ -1,6 +1,7 @@
 // SidesPage.tsx
 import { useEffect, useState } from "react";
 import { Recipe } from "./Types";
+import "../CSS/Sides.css";
 
 interface Props {
   addToCart: (recipe: Recipe) => void;
@@ -31,17 +32,32 @@ const SidesPage = ({ addToCart }: Props) => {
   return (
     <div>
       <h1>Sides</h1>
-      {sides.map((side) => (
-        <div key={side.title}>
-          <h2>{side.title}</h2>
-          <img src={side.imageUrl} alt="sidesImage" />
-          <p>description:{side.description}</p>
-          {side.instructions.map((instruction, index) => (
-            <div key={index}>{instruction}</div>
-          ))}
-          <button onClick={() => addToCart(side)}>Add to Cart</button>
-        </div>
-      ))}
+      <div className="recipe-container">
+        {sides.map((side, index) => (
+          <div className="side-recipe" key={index}>
+            <h2 className="side-title">{side.title}</h2>
+            <div className="side-image-container">
+              <img
+                className="side-image"
+                src={side.imageUrl}
+                alt="sidesImage"
+              />
+            </div>
+            <p className="side-description">Description: {side.description}</p>
+            <div className="side-instructions">
+              {side.instructions.map((instruction, index) => (
+                <div key={index}>{instruction}</div>
+              ))}
+            </div>
+            <button
+              className="add-to-cart-button"
+              onClick={() => addToCart(side)}
+            >
+              Add to Cart
+            </button>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
