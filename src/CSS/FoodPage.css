@@ -1,4 +1,3 @@
-/* FoodPage.css */
 
 .recipe-container {
   display: flex;
@@ -7,7 +6,7 @@
 }
 
 .recipe-card {
-  width: calc(33.33% - 20px); /* Adjust width to fit three recipes in a row */
+  width: calc(33.33% - 20px); 
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 20px;
@@ -16,7 +15,7 @@
 }
 
 .recipe-card:hover {
-  border-color: #007bff; /* Change border color on hover */
+  border-color: #007bff; 
 }
 
 .recipe-info {
@@ -40,6 +39,7 @@
 .recipe-buttons {
   display: flex;
   justify-content: space-between;
+  justify-content: center;
   margin-top: 10px;
 }
 
@@ -55,10 +55,8 @@
   color: #fff;
 }
 
-/* Cart CSS */
-
 .cart-container {
-  background-color: aquamarine;
+  background-color: #E8EFCF;
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 20px;
@@ -101,13 +99,13 @@
 
 .payment-button {
   background-color: red;
-  padding: 20px 40px; /* Adjust padding to increase button size */
+  padding: 20px 40px; 
   border: none;
   color: white;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 25px; /* Adjust font size if needed */
+  font-size: 25px; 
   cursor: pointer;
   width: 50%;
   margin-left: 25%;
