@@ -1,4 +1,3 @@
-// SidesPage.tsx
 import { useEffect, useState } from "react";
 import { Recipe } from "./Types";
 import "../CSS/Sides.css";

@@ -13,5 +13,4 @@ export interface Recipe {
     name: string;
     amount: number;
     unit: string;
-  }
-  
+  }  
