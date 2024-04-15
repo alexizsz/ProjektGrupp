@@ -1,12 +1,8 @@
-/* AdminPage.css */
-
-/* Style for the container div */
 .container {
   text-align: center;
   padding-bottom: 20%;
 }
 
-/* Style for the buttons */
 .button-container {
   display: flex;
   justify-content: center;
@@ -18,20 +14,19 @@
   background-color: #007bff;
   color: #fff;
   border: none;
-  padding: 20px 40px; /* Increased padding for larger size */
-  margin: 0 10px; /* Added margin for spacing between buttons */
+  padding: 20px 40px; 
+  margin: 0 10px; 
   cursor: pointer;
   border-radius: 5px;
-  font-size: 18px; /* Increased font size */
-  position: relative; /* Added position relative */
-  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+  font-size: 18px; 
+  position: relative; 
+  transition: background-color 0.3s ease; 
 }
 
 .button:hover {
   background-color: #0056b3;
 }
 
-/* Style for the message */
 .button::after {
   content: attr(data-message);
   position: absolute;
@@ -43,10 +38,10 @@
   padding: 5px 10px;
   border-radius: 5px;
   font-size: 14px;
-  opacity: 0; /* Hide message by default */
-  transition: opacity 0.3s ease; /* Smooth transition for opacity */
+  opacity: 0; 
+  transition: opacity 0.3s ease;
 }
 
 .button:hover::after {
-  opacity: 1; /* Show message on hover */
+  opacity: 1; 
 }

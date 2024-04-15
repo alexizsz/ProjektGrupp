@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../CSS/DeleteRecipe.css";
+import '../CSS/DeleteRecipe.css'
 
 interface Recipe {
   _id: string;
@@ -11,15 +11,12 @@ const DeleteRecipe: React.FC = () => {
   const [selectedRecipes, setSelectedRecipes] = useState<string[]>([]);
 
   useEffect(() => {
-    // Fetch recipes from the API when the component mounts
     fetchRecipes();
   }, []);
 
   const fetchRecipes = async () => {
     try {
-      const response = await fetch(
-        "https://sti-java-grupp8-ctcktcs.reky.se/recipes"
-      );
+      const response = await fetch("https://sti-java-grupp8-ctcktc.reky.se/recipes");
       if (response.ok) {
         const data = await response.json();
         setRecipes(data);
@@ -32,8 +29,7 @@ const DeleteRecipe: React.FC = () => {
   };
 
   const handleCheckboxChange = (recipeId: string) => {
-    // Toggle the selected state of the recipe
-    setSelectedRecipes((prevSelectedRecipes) =>
+     setSelectedRecipes((prevSelectedRecipes) =>
       prevSelectedRecipes.includes(recipeId)
         ? prevSelectedRecipes.filter((id) => id !== recipeId)
         : [...prevSelectedRecipes, recipeId]
@@ -42,7 +38,6 @@ const DeleteRecipe: React.FC = () => {
 
   const handleDeleteRecipes = async () => {
     try {
-      // Loop through selected recipes and delete each one
       for (const recipeId of selectedRecipes) {
         const response = await fetch(
           `https://sti-java-grupp8-ctcktc.reky.se/recipes/${recipeId}`,
@@ -55,9 +50,7 @@ const DeleteRecipe: React.FC = () => {
         }
       }
       console.log("Recipes deleted successfully");
-      // Clear the selected recipes after deletion
       setSelectedRecipes([]);
-      // Refetch recipes to update the list
       fetchRecipes();
     } catch (error) {
       console.error("Error deleting recipes:", error);
@@ -78,6 +71,7 @@ const DeleteRecipe: React.FC = () => {
         </div>
       ))}
       <button onClick={handleDeleteRecipes}>Delete Selected Recipes</button>
+      
     </div>
   );
 };

@@ -1,8 +1,6 @@
-/* Footer.css */
-
 .footer {
     background-color:#AFD198;
-    color: rgb(26, 22, 22);  /*color: white;   (Gammal färgkod)*/
+    color: rgb(26, 22, 22); 
     padding: 20px;
     text-align: center;
     position: relative;
@@ -27,4 +25,3 @@
   .social-icons a:hover {
     color: #ccc;
   }
-  
