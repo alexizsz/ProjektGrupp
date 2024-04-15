@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import "../CSS/FoodPage.css";
 import { Link } from "react-router-dom";
 import SidesPage from "../components/Sides";
+import BeveragesPage from "../components/Beverages";
 
 interface Recipe {
   _id: string;
@@ -145,6 +146,11 @@ const FoodPage = () => {
         <div ref={sidesRef} className="sides-container">
           <h2>Sides</h2>
           <SidesPage addToCart={addToCartFromSides} />
+        </div>
+      )}
+      {showSides && (
+        <div className="sides-container">
+          <BeveragesPage addToCart={addToCartFromSides} />{" "}
         </div>
       )}
       <div className="cart-container">

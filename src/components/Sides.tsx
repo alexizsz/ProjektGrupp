@@ -77,8 +77,8 @@ const SidesPage = ({ addToCart }: Props) => {
       {showDrinksPopup && (
         <div className="popup-container">
           <div className="popup">
-            <h2>Drink Suggestions</h2>
-            <BeveragesPage selectedSide={selectedSide || ""} />
+          <h2>Drink Suggestions for {selectedSide}, On the house!</h2>
+            <BeveragesPage selectedSide={selectedSide || ""} addToCart={addToCart} />
             <button onClick={handleCloseDrinksPopup}>Close</button>
           </div>
         </div>
