@@ -17,7 +17,7 @@ const Homepage = () => {
                 <p>Price: 119 kr</p>
             </div>
             <div className='food-item'>
-                <img src='https://th.bing.com/th/id/OIP.DMUuFtUpJRfQOKrgzOSdqQHaFn?rs=1&pid=ImgDetMain' alt='Meatballs with mashed potatoes' />
+                <img src='https://www.budgetbytes.com/wp-content/uploads/2022/01/Easy-Homemade-Meatballs-spoon.jpg' alt='Meatballs with mashed potatoes' />
                 <h3>Meatballs with mashed potatoes</h3>
                 <p>Swedish meatballs with mashed potatoes, jam, cucumber and tasty sauce</p>
                 <p>Price: 89 kr</p>
