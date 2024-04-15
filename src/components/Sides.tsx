@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Recipe } from "./Types";
 import "../CSS/Sides.css";
+import BeveragesPage from "./Beverages";
 
 interface Props {
   addToCart: (recipe: Recipe) => void;
@@ -8,6 +9,8 @@ interface Props {
 
 const SidesPage = ({ addToCart }: Props) => {
   const [sides, setSides] = useState<Recipe[]>([]);
+  const [showDrinksPopup, setShowDrinksPopup] = useState(false);
+  const [selectedSide, setSelectedSide] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchSides = async () => {
@@ -27,6 +30,20 @@ const SidesPage = ({ addToCart }: Props) => {
 
     fetchSides();
   }, []);
+
+  const handleOpenDrinksPopup = (side: Recipe) => {
+    setSelectedSide(side.title);
+    setShowDrinksPopup(true);
+  };
+
+  const handleCloseDrinksPopup = () => {
+    setShowDrinksPopup(false);
+  };
+
+  const handleAddToCart = (side: Recipe) => {
+    addToCart(side);
+    handleOpenDrinksPopup(side);
+  };
 
   return (
     <div>
@@ -50,13 +67,22 @@ const SidesPage = ({ addToCart }: Props) => {
             </div>
             <button
               className="recipe-button"
-              onClick={() => addToCart(side)}
+              onClick={() => handleAddToCart(side)}
             >
               Add to Cart
             </button>
           </div>
         ))}
       </div>
+      {showDrinksPopup && (
+        <div className="popup-container">
+          <div className="popup">
+            <h2>Drink Suggestions</h2>
+            <BeveragesPage selectedSide={selectedSide || ""} />
+            <button onClick={handleCloseDrinksPopup}>Close</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

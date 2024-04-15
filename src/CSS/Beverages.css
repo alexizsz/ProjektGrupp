@@ -1,0 +1,24 @@
+.drink-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .drink-item {
+    margin-bottom: 10px;
+  }
+  
+  .drink-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .drink-image {
+    width: 100px; 
+    height: auto; 
+    margin-right: 10px;
+  }
+  
+  .drink-name {
+    flex: 1;
+    font-family: "Abril Fatface", sans-serif;
+  }
