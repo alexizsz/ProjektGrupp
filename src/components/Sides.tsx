@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Recipe } from "./Types";
 import "../CSS/Sides.css";
+import BeveragesPage from "./Beverages";
 
 interface Props {
   addToCart: (recipe: Recipe) => void;
@@ -9,7 +10,7 @@ interface Props {
 const SidesPage = ({ addToCart }: Props) => {
   const [sides, setSides] = useState<Recipe[]>([]);
   const [showDrinksPopup, setShowDrinksPopup] = useState(false);
-  const [selectedSide, setSelectedSide] = useState<Recipe | null>(null);
+  const [selectedSide, setSelectedSide] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchSides = async () => {
@@ -30,9 +31,8 @@ const SidesPage = ({ addToCart }: Props) => {
     fetchSides();
   }, []);
 
-
   const handleOpenDrinksPopup = (side: Recipe) => {
-    setSelectedSide(side);
+    setSelectedSide(side.title);
     setShowDrinksPopup(true);
   };
 
@@ -42,7 +42,7 @@ const SidesPage = ({ addToCart }: Props) => {
 
   const handleAddToCart = (side: Recipe) => {
     addToCart(side);
-    handleOpenDrinksPopup(side)
+    handleOpenDrinksPopup(side);
   };
 
   return (
@@ -78,9 +78,7 @@ const SidesPage = ({ addToCart }: Props) => {
         <div className="popup-container">
           <div className="popup">
             <h2>Drink Suggestions</h2>
-            <button onClick={() => console.log("Drink 1 selected")}>Add to Cart</button>
-            <button onClick={() => console.log("Drink 2 selected")}>Add to Cart</button>
-            <button onClick={() => console.log("Drink 3 selected")}>Add to Cart</button>
+            <BeveragesPage selectedSide={selectedSide || ""} />
             <button onClick={handleCloseDrinksPopup}>Close</button>
           </div>
         </div>
