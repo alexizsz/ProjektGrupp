@@ -1,5 +1,3 @@
-/* AddRecipe.css */
-
 .add-recipe-container {
     max-width: 600px;
     margin: 0 auto;
@@ -67,12 +65,11 @@
   
   .add-recipe-container .add-recipe-button {
     margin-top: 5%;
-    width: 100%; /* Full width */
-    padding: 12px 20px; /* Larger padding */
-    background-color: #e74c3c; /* Red color */
+    width: 100%;
+    padding: 12px 20px;
+    background-color: #e74c3c;
   }
   
   .add-recipe-container .add-recipe-button:hover {
     background-color: #d63a2e;
-  }
-  
+  }  

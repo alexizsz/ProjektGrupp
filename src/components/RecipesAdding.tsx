@@ -8,26 +8,20 @@ const AddRecipe = () => {
   const [timeInMins, setTimeInMins] = useState(0);
   const [price, setPrice] = useState(0);
   const [category, setCategory] = useState("");
-  const [newInstruction, setNewInstruction] = useState("");
-  //Instructions&Ingredients vill jag kunna lägga till flera rader, därav arrays. 
-  //Instructions behöver bara vara arrays av string.
-  const [instructions, setInstructions] = useState<string[]>([""]);
-  //Ingredients behöver ha flera specifika saker i sin array därför är den specifierad
+  const [newInstruction, setNewInstruction] = useState("");  
+  const [instructions, setInstructions] = useState<string[]>([""]); 
   const [ingredients, setIngredients] = useState<
     { name: string; amount: number; unit: string }[]
   >([]);
 
-  // Funktion för att lägga till en ny ingredient till min ingredient array
   const handleAddIngredient = () => {
-    // Updaterar setIngredients "staten" genom att ta den gamla arrayen och "skapa" en ny med den nya ingredienten
+ 
     setIngredients((prevIngredients) => [
       ...prevIngredients,
       { name: "", amount: 0, unit: "" },
     ]);
   };
 
-  //Likadan funktion för instruktion eftersom det kan behöva vara flera rader.
-  //Trimmar bort tom text ifall det finns bakom instruktionerna
   const handleAddInstruction = () => {
     if (newInstruction.trim() !== "") {
       setInstructions((prevInstructions) => [
@@ -61,11 +55,10 @@ const AddRecipe = () => {
       );
 
       if (response.ok) {
-        //Console logga id som skapas för receptet
+  
         const responseData = await response.json();
         const newRecipeId = responseData._id;
         console.log("Recipe added successfully. New recipe ID:", newRecipeId);
-        // Återställer alla värden
         setTitle("");
         setDescription("");
         setImageUrl("");
