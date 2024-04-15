@@ -8,32 +8,37 @@ const BeveragesPage = ({ selectedSide }: { selectedSide: string }) => {
   useEffect(() => {
     const fetchDrinkSuggestions = async () => {
       try {
-        let response;
+        let urls: string[] = [];
         switch (selectedSide) {
           case "Pommes Frites":
-            response = await fetch(
-              "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=11009"
-            );
+            urls = [
+              "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=11009",
+              "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=11008",
+              "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=11007",
+            ];
             break;
           case "Bearnaisesås":
-            response = await fetch(
-              "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=11006"
-            );
+            urls = [
+              "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=11006",
+              "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=11005",
+              "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=11004",
+            ];
             break;
           case "Hummus":
-            response = await fetch(
-              "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=11003"
-            );
+            urls = [
+              "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=11003",
+              "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=11002",
+              "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=11001",
+            ];
             break;
           default:
             throw new Error("Invalid side selected");
         }
-        if (!response.ok) {
-          throw new Error("Failed to fetch drink suggestions");
-        }
 
-        const data = await response.json();
-        const drinksData: drinks[] = data.drinks;
+        const promises = urls.map(url => fetch(url));
+        const responses = await Promise.all(promises);
+        const data = await Promise.all(responses.map(res => res.json()));
+        const drinksData: drinks[] = data.flatMap(item => item.drinks.slice(0, 1)); 
         setDrinkSuggestions(drinksData);
       } catch (error) {
         console.error("Error fetching drink suggestions:", error);
