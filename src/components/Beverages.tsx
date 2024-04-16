@@ -4,14 +4,14 @@ import "../CSS/Beverages.css";
 
 interface Props {
   selectedSide: string;
-  addToCart: (item: CartItem) => void; 
+  addToCart: (item: CartItem) => void;
 }
 
 interface CartItem {
-  id: string; 
-  title: string; 
+  id: string;
+  title: string;
   price: number;
-  imageUrl: string; 
+  imageUrl: string;
   quantity: number;
 }
 
@@ -51,8 +51,8 @@ const BeveragesPage = ({ selectedSide, addToCart }: Props) => {
         const promises = urls.map((url) => fetch(url));
         const responses = await Promise.all(promises);
         const data = await Promise.all(responses.map((res) => res.json()));
-        const drinksData: drinks[] = data.map(item => item.drinks[0]); 
-        
+        const drinksData: drinks[] = data.map((item) => item.drinks[0]);
+
         setDrinkSuggestions(drinksData);
       } catch (error) {
         console.error("Error fetching drink suggestions:", error);
@@ -68,11 +68,10 @@ const BeveragesPage = ({ selectedSide, addToCart }: Props) => {
       title: drink.strDrink,
       price: 0,
       imageUrl: drink.strDrinkThumb,
-      quantity: 1
+      quantity: 1,
     };
     addToCart(cartItem);
   };
-
 
   return (
     <div>
